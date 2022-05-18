@@ -2,10 +2,12 @@ SOURCES = $(shell find ast kaleidoscope lexer logger parser -name '*.cpp')
 HEADERS = $(shell find ast kaleidoscope lexer logger parser -name '*.h')
 OBJ = ${SOURCES:.cpp=.o}
 
-CC = llvm-g++
+CC = clang-12
+#CC = llvm-g++
 # -stdlib=libc++ -std=c++11
-CFLAGS = -g -O3 -I llvm/include -I llvm/build/include -I ./
-LLVMFLAGS = `/usr/local/Cellar/llvm@4/4.0.1/bin/llvm-config --cxxflags --ldflags --system-libs --libs all`
+CFLAGS = -g -O3 -I /usr/lib/llvm-12/include/ -I /usr/lib/llvm-12/build/include -I ./ -std=c++17 -lstdc++
+#LLVMFLAGS = 
+LLVMFLAGS = `llvm-config-12 --cxxflags --ldflags --system-libs --libs core`
 
 .PHONY: main
 
