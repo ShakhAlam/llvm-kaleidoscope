@@ -10,6 +10,13 @@ make
 # This should bring up a simple repl
 ~~~
 
+On Ubuntu Linux (tested on 20.04)
+~~~
+sudo apt install -y llvm-12 clang-12
+make
+./main
+~~~
+
 ## Why?
 
 Self-education...
@@ -71,7 +78,7 @@ As you can see in `ast` folder, we have implemented the following AST nodes with
 - Variable Expressions;
 
 Each of these nodes have a constructor where all mandatory values are initialized.
-Based on that information, `codegen()` can build LLVM IR, usine these values.
+Based on that information, `codegen()` can build LLVM IR, using these values.
 
 The simplest one, i.e. is Number Expression.
 `codegen()` for number expression just calls appropriate method in LLVM IR Builder:
